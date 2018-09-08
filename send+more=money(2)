@@ -1,0 +1,25 @@
+ def solveNew():
+    startTime = time.clock()
+    for send in range(1000, 9999):
+        newSend = str(send)
+        s = int(newSend[0])
+        e = int(newSend[1])
+        n = int(newSend[2])
+        d = int(newSend[3])
+        if unique([s,e,n,d]):
+            for more in range(1000, 10000):
+                newMore = str(more)
+                newE = int(newMore[3])
+                if newE == e:
+                    m = int(newMore[0])
+                    o = int(newMore[1])
+                    r = int(newMore[2])
+                    if unique([s, e, n, d, m, o, r]):
+                        money = send + more
+                        moneyNew = str(money)
+                        if len(moneyNew)==5:
+                            if int(moneyNew[0])==m and int(moneyNew[1])==o and int(moneyNew[2])==n and int(moneyNew[3])==e:
+                                if unique([s, e, n, d, m, o, r, money%10]):
+                                    print(send, more, money)
+                                    print(time.clock()-startTime)
+                                    return True
